@@ -1,0 +1,13 @@
+FROM ruby:2.5
+
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresql-client
+
+RUN mkdir /QuizMaster
+WORKDIR /QuizMaster
+
+ADD Gemfile /QuizMaster/Gemfile
+ADD Gemfile.lock /QuizMaster/Gemfile.lock
+
+RUN bundle install
+
+ADD . /QuizMaster
