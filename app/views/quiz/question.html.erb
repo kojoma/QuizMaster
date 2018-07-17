@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Quiz</h1>
+
+<%= render 'shared/flash' %>
+
+<div class="alert alert-info" role="alert">
+  Please enter the Answer of the quiz and click Submit.
+</div>
 
 <%= form_with(method: :post, scope: :quiz, local: true) do |form| %>
   <%= hidden_field_tag 'quiz[question_id]', @question.id %>

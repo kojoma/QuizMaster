@@ -8,9 +8,11 @@ class QuizController < ApplicationController
 
     respond_to do |format|
       if quiz.is_correct?(quiz_params[:answer])
-        format.html { redirect_to quiz_url, notice: 'Correct' }
+        flash[:success] = 'Correct'
+        format.html { redirect_to quiz_url }
       else
-        format.html { redirect_to quiz_url, notice: 'Incorrect' }
+        flash[:alert] = 'Incorrect'
+        format.html { redirect_to quiz_url }
       end
     end
   end
