@@ -1,6 +1,13 @@
 class Question < ApplicationRecord
   has_one :answer, dependent: :destroy
   accepts_nested_attributes_for :answer
-  validates :content, presence: true
+
+  validates :content_html, presence: true
+  validates :content_html, format: { without: /<script>/ }
+  validates :content_html, format: { without: /<\/script>/ }
+  validates :content_html, format: { without: /javascript:/ }
+
   validates_associated :answer
+
+  CONTENT_HTML_TRUNCATE_LENGTH = 50
 end

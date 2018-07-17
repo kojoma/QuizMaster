@@ -14,7 +14,7 @@ class QuestionsTest < ApplicationSystemTestCase
     visit questions_url
     click_on "New Question"
 
-    fill_in "Content", with: @question.content
+    fill_in "Content Html", with: @question.content_html
     click_on "Create Question"
 
     assert_text "Question was successfully created"
@@ -25,7 +25,7 @@ class QuestionsTest < ApplicationSystemTestCase
     visit questions_url
     click_on "Edit", match: :first
 
-    fill_in "Content", with: @question.content
+    fill_in "Content Html", with: @question.content
     click_on "Update Question"
 
     assert_text "Question was successfully updated"

@@ -1,6 +1,6 @@
 json.question do
   json.id question.id
-  json.content question.content
+  json.content_html question.content_html
   json.created_at question.created_at
   json.updated_at question.updated_at
 end
