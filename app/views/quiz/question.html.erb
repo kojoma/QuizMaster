@@ -2,21 +2,15 @@
 
 <%= render 'shared/flash' %>
 
-<div class="alert alert-info" role="alert">
-  Please enter the Answer of the quiz and click Submit.
+<div class="mb-3">
+  <%= @question.content %>
 </div>
 
 <%= form_with(method: :post, scope: :quiz, local: true) do |form| %>
   <%= hidden_field_tag 'quiz[question_id]', @question.id %>
 
-  <p>
-    <strong>Content:</strong>
-    <%= @question.content %>
-  </p>
-
   <div class="form-group">
-    <%= form.label :answer, 'Answer' %>
-    <%= form.text_area :answer, {:class => 'form-control'} %>
+    <%= form.text_area :answer, {:class => 'form-control', :placeholder => 'Please enter the Answer'} %>
   </div>
 
   <div class="form-group">
