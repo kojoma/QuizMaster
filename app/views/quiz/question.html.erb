@@ -6,7 +6,7 @@
   <%== @question.content_html %>
 </div>
 
-<%= form_with(method: :post, scope: :quiz, local: true) do |form| %>
+<%= form_with(url: quiz_path, method: :post, scope: :quiz, local: true) do |form| %>
   <%= hidden_field_tag 'quiz[question_id]', @question.id %>
 
   <div class="form-group">
