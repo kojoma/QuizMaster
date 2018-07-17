@@ -3,7 +3,7 @@
 <%= render 'shared/flash' %>
 
 <div class="mb-3">
-  <%= @question.content %>
+  <%== @question.content %>
 </div>
 
 <%= form_with(method: :post, scope: :quiz, local: true) do |form| %>
