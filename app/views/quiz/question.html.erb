@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Quiz</h1>
+
+<%= form_with(method: :post, scope: :quiz, local: true) do |form| %>
+  <%= hidden_field_tag 'quiz[question_id]', @question.id %>
+
+  <p>
+    <strong>Content:</strong>
+    <%= @question.content %>
+  </p>
+
+  <div class="form-group">
+    <%= form.label :answer, 'Answer' %>
+    <%= form.text_area :answer, {:class => 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit 'Submit', :class => 'btn btn-primary' %>
+  </div>
+<% end %>
