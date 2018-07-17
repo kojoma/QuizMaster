@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Show Question</h1>
+
+<p>
+  <strong>ID:</strong>
+  <%= @question.id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @question.content %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <% if @question.answer.present?%>
+    <%= @question.answer.content %>
+  <% else %>
+    -
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question), {:class => 'btn btn-info'} %>
+<%= link_to 'Back', questions_path, {:class => 'btn btn-secondary'} %>
