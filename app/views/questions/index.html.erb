@@ -20,7 +20,7 @@
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.id %></td>
-        <td><%= question.content_html %></td>
+        <td><%= question.content_html.truncate(Question::CONTENT_HTML_TRUNCATE_LENGTH) %></td>
         <td>
           <% if question.answer.present? %>
             <%= question.answer.content %>

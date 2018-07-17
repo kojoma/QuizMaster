@@ -8,4 +8,6 @@ class Question < ApplicationRecord
   validates :content_html, format: { without: /javascript:/ }
 
   validates_associated :answer
+
+  CONTENT_HTML_TRUNCATE_LENGTH = 50
 end
