@@ -2,9 +2,16 @@
 
 <h1>Questions</h1>
 
-<table>
+<div class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+    <%= link_to 'New Question', new_question_path, {:class => 'btn btn-primary'} %>
+  </div>
+</div>
+
+<table class="table table-hover">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Content</th>
       <th>Answer</th>
       <th colspan="3"></th>
@@ -14,6 +21,7 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+        <td><%= question.id %></td>
         <td><%= question.content %></td>
         <td>
           <% if question.answer.present? %>
@@ -29,7 +37,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Question', new_question_path %>

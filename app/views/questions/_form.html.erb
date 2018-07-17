@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, {:class => 'form-control'} %>
   </div>
 
   <%= form.fields_for :answer do |a| %>
-    <div class="field">
+    <div class="form-group">
       <%= a.label :content, 'Answer' %>
-      <%= a.text_area :content %>
+      <%= a.text_area :content, {:class => 'form-control'} %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>
