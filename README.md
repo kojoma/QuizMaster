@@ -65,3 +65,10 @@ access `/questions` or clicked `Manage Question` navigation bar menu.
 3. Please input quiz answer, and click `submit` button.
 4. Display `Correct` or `Incorrect`, and displayed next quiz.
 
+## Unit Test
+
+Use RSpec for unit testing.
+
+```
+$ docker-compose exec web bin/rails spec
+```
