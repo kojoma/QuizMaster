@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+question_1 = Question.create({ content_html: '<p>How many vowels are there in the English alphabet?</p>' })
+question_2 = Question.create({ content_html: '<p>How many English alphabets are there?</p>' })
+question_3 = Question.create({ content_html: '<p>Where is the capital of the United Kingdom?</p>' })
+question_4 = Question.create({ content_html: '<p>Where is the capital of Japan?</p>' })
+question_5 = Question.create({ content_html: '<p>How many prefectures in Japan do you have?</p>' })
+
+answer_1 = Answer.create({ question_id: question_1.id, content: '5' })
+answer_2 = Answer.create({ question_id: question_2.id, content: '26' })
+answer_3 = Answer.create({ question_id: question_3.id, content: 'London' })
+answer_4 = Answer.create({ question_id: question_4.id, content: 'Tokyo' })
+answer_5 = Answer.create({ question_id: question_5.id, content: '47' })
