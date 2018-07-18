@@ -2,7 +2,7 @@ question_1 = Question.create({ content_html: '<p>How many vowels are there in th
 question_2 = Question.create({ content_html: '<p>How many English alphabets are there?</p>' })
 question_3 = Question.create({ content_html: '<p>Where is the capital of the United Kingdom?</p>' })
 question_4 = Question.create({ content_html: '<p>Where is the capital of Japan?</p>' })
-question_5 = Question.create({ content_html: '<p>How many prefectures in Japan do you have?</p>' })
+question_5 = Question.create({ content_html: '<p>How many prefectures in Japan do you have?</p><br><img src="https://frame-illust.com/fi/wp-content/uploads/2017/06/map-japan-10207.png" height="500" width="500">' })
 
 answer_1 = Answer.create({ question_id: question_1.id, content: '5' })
 answer_2 = Answer.create({ question_id: question_2.id, content: '26' })
