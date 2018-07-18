@@ -1,0 +1,19 @@
+<h1>Quiz</h1>
+
+<%= render 'shared/flash' %>
+
+<h2>Qustion</h2>
+
+<div class="mb-3">
+  <%== @question.content_html %>
+</div>
+
+<h2>Answer</h2>
+
+<div class="mb-3">
+  <%== @question.answer.content %>
+</div>
+
+<div class="mb-3">
+  <%= link_to 'Next Quiz', quiz_path, {:class => 'btn btn-primary'} %>
+</div>

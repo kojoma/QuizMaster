@@ -29,14 +29,15 @@ describe QuizController do
       }
     end
 
-    it 'redirect to :question template' do
+    it 'renders :answer template' do
       post :answer, params: { quiz: quiz_attributes }, session: {}
-      expect(response).to redirect_to(quiz_path)
+      expect(response).to render_template :answer
     end
 
     it 'message should be include in flash[:success] with quiz correct' do
       post :answer, params: { quiz: quiz_attributes }, session: {}
       expect(flash[:success]).to eq 'Correct'
+      expect(flash[:alert]).to eq nil
     end
 
     it 'message should be include in flash[:alert] with quiz incorrect' do
@@ -47,6 +48,7 @@ describe QuizController do
         }
       }, session: {}
       expect(flash[:alert]).to eq 'Incorrect'
+      expect(flash[:success]).to eq nil
     end
   end
 end
