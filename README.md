@@ -1,24 +1,63 @@
-# README
+# QuizMaster
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+QuizMaster is an application, can play and manage quizzes.
 
-Things you may want to cover:
+## System information
 
-* Ruby version
+- Ruby
+  - 2.5.1
+- Rails
+  - 5.2.0
+- Database
+  - PosgreSQL
+- Development Environment Dependences
+  - docker-compose
 
-* System dependencies
+## Setup Development Environment
 
-* Configuration
+1. install docker
 
-* Database creation
+Please install docker to your computer.
 
-* Database initialization
+ref: [Docker docs](https://docs.docker.com/install/)
 
-* How to run the test suite
+2. clone git repository
 
-* Services (job queues, cache servers, search engines, etc.)
+Please git clone this repository.
 
-* Deployment instructions
+3. setup docker
 
-* ...
+```
+$ cd /path/to/repository
+$ docker-compose build
+# Building docker image. Please wait several minutes...
+```
+
+4. setup database
+
+```
+$ docker-compose run web bin/rails db:create
+$ docker-compose run web bin/rails db:migrate
+```
+
+5. run application
+
+```
+$ docker-compose up
+```
+
+Open `http://localhost:3000` in your browser.
+
+## Application Usage
+
+### Manage Quiz
+
+access `/questions` or clicked `Manage Question` navigation bar menu.
+
+### Play Quiz
+
+1. access `/quiz` or clicked `Quiz` navigation bar menu.
+2. Quiz is displayed randomly.
+3. Please input quiz answer, and click `submit` button.
+4. Display `Correct` or `Incorrect`, and displayed next quiz.
+
