@@ -10,4 +10,8 @@ class Question < ApplicationRecord
   validates_associated :answer
 
   CONTENT_HTML_TRUNCATE_LENGTH = 50
+
+  def is_correct?(answer)
+    self.answer.content == answer
+  end
 end

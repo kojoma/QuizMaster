@@ -6,10 +6,10 @@ class QuizController < ApplicationController
 
   # POST /quiz
   def answer
-    quiz = Logics::QuizScore.new(quiz_params[:question_id])
+    question = Question.find(quiz_params[:question_id])
 
     respond_to do |format|
-      if quiz.is_correct?(quiz_params[:answer])
+      if question.is_correct?(quiz_params[:answer])
         flash[:success] = 'Correct'
         format.html { redirect_to quiz_url }
       else
