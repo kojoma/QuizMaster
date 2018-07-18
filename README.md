@@ -33,18 +33,22 @@ $ docker-compose build
 # Building docker image. Please wait several minutes...
 ```
 
-4. setup database
-
-```
-$ docker-compose run web bin/rails db:create
-$ docker-compose run web bin/rails db:migrate
-```
-
-5. run application
+4. up docker
 
 ```
 $ docker-compose up
 ```
+
+5. setup database
+
+```
+$ docker-compose exec web bin/rails db:create
+$ docker-compose exec web bin/rails db:migrate
+# if you want seed data, please execute db:seed command
+$ docker-compose exec web bin/rails db:seed
+```
+
+6. open application
 
 Open `http://localhost:3000` in your browser.
 
