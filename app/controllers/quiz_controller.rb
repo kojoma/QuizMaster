@@ -6,15 +6,15 @@ class QuizController < ApplicationController
 
   # POST /quiz
   def answer
-    question = Question.find(quiz_params[:question_id])
+    @question = Question.find(quiz_params[:question_id])
 
     respond_to do |format|
-      if question.is_correct?(quiz_params[:answer])
-        flash[:success] = 'Correct'
-        format.html { redirect_to quiz_url }
+      if @question.is_correct?(quiz_params[:answer])
+        flash.now[:success] = 'Correct'
+        format.html { render :answer }
       else
-        flash[:alert] = 'Incorrect'
-        format.html { redirect_to quiz_url }
+        flash.now[:alert] = 'Incorrect'
+        format.html { render :answer }
       end
     end
   end
