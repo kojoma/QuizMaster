@@ -1,8 +1,10 @@
 class QuizController < ApplicationController
+  # GET /quiz
   def question
     @question = Question.all.sample(1).first
   end
 
+  # POST /quiz
   def answer
     quiz = Logics::QuizScore.new(quiz_params[:question_id])
 
