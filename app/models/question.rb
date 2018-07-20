@@ -3,6 +3,8 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :answer
 
   validates :content_html, presence: true
+
+  # For XSS
   validates :content_html, format: { without: /<script>/ }
   validates :content_html, format: { without: /<\/script>/ }
   validates :content_html, format: { without: /javascript:/ }
