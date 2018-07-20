@@ -1,4 +1,9 @@
 class Utils::IntegerToEn
+  # Convert integer value to english number.
+  # It supports 0 to 999
+  #
+  # Utils::IntegerToEn.to_en!(10)
+  # -> ten
   def self.to_en!(integer)
     case integer
     when 0
