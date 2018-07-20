@@ -1,13 +1,13 @@
 class QuizController < ApplicationController
+  before_action :set_random_question, only: [:question]
+  before_action :set_question, only: [:answer]
+
   # GET /quiz
   def question
-    @question = Question.all.sample(1).first
   end
 
   # POST /quiz
   def answer
-    @question = Question.find(quiz_params[:question_id])
-
     respond_to do |format|
       if @question.is_correct?(quiz_params[:answer])
         flash.now[:success] = 'Correct'
@@ -22,5 +22,13 @@ class QuizController < ApplicationController
   private
     def quiz_params
       params.require(:quiz).permit(:question_id, :answer)
+    end
+
+    def set_random_question
+      @question = Question.all.sample(1).first
+    end
+
+    def set_question
+      @question = Question.find(quiz_params[:question_id])
     end
 end
